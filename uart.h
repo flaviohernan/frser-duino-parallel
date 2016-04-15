@@ -18,6 +18,9 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
+#ifndef UART_FR_H
+#define UART_FR_H
+
 /* UART MODULE HEADER */
 uint8_t uart_isdata(void);
 uint8_t uart_recv(void);
@@ -34,3 +37,5 @@ void uart_wait_txdone(void);
 /* Compat; Int Tx support was stripped. */
 #define UART_POLLED_TX
 #define UARTTX_BUFLEN 0
+
+#endif

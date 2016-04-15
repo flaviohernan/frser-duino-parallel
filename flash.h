@@ -18,5 +18,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
+#ifndef FLASH_FR_H
+#define FLASH_FR_H
+
 void flash_init(void);
 #include "frser-flashapi.h"
+
+#endif

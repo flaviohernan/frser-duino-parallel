@@ -1,3 +1,6 @@
+#ifndef SPIHW_FR_H
+#define SPIHW_FR_H
+
 /* Define what our hardware is. */
 #include "spihw_avrspi.h"
 
@@ -18,4 +21,4 @@
 #define spi_deselect() do { SPI_PORT |= (1<<SS); } while(0)
 #endif
 
-
+#endif
