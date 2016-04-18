@@ -181,22 +181,35 @@ static const unsigned char BitReverseTable256[] =
   0x0F, 0x8F, 0x4F, 0xCF, 0x2F, 0xAF, 0x6F, 0xEF, 0x1F, 0x9F, 0x5F, 0xDF, 0x3F, 0xBF, 0x7F, 0xFF
 };
 
+static const unsigned char BitReverseTable4[] = 
+{
+	0x00, 0x02,
+	0x01, 0x03
+};
 
 static void flash_setaddr(uint32_t addr) {
 
 	uint8_t aux =  0;
+	PORTA = 0X00;
+	PORTC = 0X00;
+	PORTD &= ~(_BV(7));
+	PORTG &= ~(_BV(2) | _BV(1));
+
 	PORTA = (addr & 0XFF);
 	aux = addr >> 8;
 	PORTC = BitReverseTable256[ aux & 0XFF ];
+	aux =  0;
 	aux = addr >> 9;
 	PORTD |= (aux & 0x80);
+	aux =  0;
 	aux = addr >> 17;
-	PORTG |= BitReverseTable256[ aux & 0X03 ] << 1;	
+	PORTG |= BitReverseTable4[ aux & 0X03 ] << 1;	
 }
 
 static void flash_pulse_we(void) {
 	PORTL &= ~(_BV(7));
 	asm volatile ("nop\n\t"
+		"nop\n\t"
 		"nop\n\t"
 		::);
 	PORTL |= _BV(7);
