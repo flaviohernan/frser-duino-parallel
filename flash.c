@@ -66,7 +66,7 @@ static void flash_databus_output(unsigned char data) {
 	// DDRD |= (_BV(2) | _BV(3) | _BV(4) | _BV(5) | _BV(6) | _BV(7));
 
 	PORTB &= ~(_BV(2) | _BV(3));
-	PORTB |= (data & 0x03)<<2;;
+	PORTB |= (data & 0x03)<<2;
 	PORTL &= ~(_BV(0) | _BV(1) | _BV(2) | _BV(3) | _BV(4) | _BV(5));
 	PORTL |= (data & 0XFC)>>2;
 

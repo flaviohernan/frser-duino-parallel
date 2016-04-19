@@ -96,10 +96,10 @@ objdump: $(PROJECT).out
 # 	DFLAGS= FRBAUD=115200 $(MAKE) clean all
 
 u2-mega:
-	PROJECT=frser-MEGA MMCU=atmega2560 DFLAGS= FRBAUD=500000 $(MAKE) clean all
+	PROJECT=frser-MEGA MMCU=atmega2560 DFLAGS= FRBAUD=1000000 $(MAKE) clean all
 
 u2-uno:
-	PROJECT=frser-UNO MMCU=atmega328p DFLAGS= FRBAUD=500000 $(MAKE) clean all
+	PROJECT=frser-UNO MMCU=atmega328p DFLAGS= FRBAUD=1000000 $(MAKE) clean all
 
 # flash-u2:
 # 	BLBAUD=115200 SERIAL_DEV=/dev/ttyACM0 $(MAKE) program
